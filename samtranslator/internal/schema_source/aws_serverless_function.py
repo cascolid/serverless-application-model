@@ -407,6 +407,7 @@ class MSKEventProperties(BaseModel):
     StartingPositionTimestamp: Optional[PassThroughProp] = mskeventproperties("StartingPositionTimestamp")
     Stream: PassThroughProp = mskeventproperties("Stream")
     Topics: PassThroughProp = mskeventproperties("Topics")
+    DestinationConfig: Optional[PassThroughProp] = mskeventproperties("DestinationConfig")
     SourceAccessConfigurations: Optional[PassThroughProp] = mskeventproperties("SourceAccessConfigurations")
 
 
@@ -444,6 +445,7 @@ class SelfManagedKafkaEventProperties(BaseModel):
     StartingPosition: Optional[PassThroughProp]  # TODO: add documentation
     StartingPositionTimestamp: Optional[PassThroughProp]  # TODO: add documentation
     Topics: PassThroughProp = selfmanagedkafkaeventproperties("Topics")
+    DestinationConfig: Optional[PassThroughProp] = selfmanagedkafkaeventproperties("DestinationConfig")
 
 
 class SelfManagedKafkaEvent(BaseModel):
