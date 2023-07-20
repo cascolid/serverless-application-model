@@ -30,9 +30,7 @@
         },
         "DestinationConfig": {
           "OnFailure": {
-            "Destination": {
-              "Fn::Sub": "arn:aws:s3:${AWS::Region}:012345678901:my-s3-arn"
-            }
+            "Destination": "arn:aws:s3:::my-s3-arn"
           }
         },
         "EventSourceArn": {
@@ -77,9 +75,12 @@
                 {
                   "Action": "s3:PutObject",
                   "Effect": "Allow",
-                  "Resource": {
-                    "Fn::Sub": "arn:aws:s3:${AWS::Region}:012345678901:my-s3-arn"
-                  }
+                  "Resource": "arn:aws:s3:::my-s3-arn/*"
+                },
+                {
+                  "Action": "s3:ListBucket",
+                  "Effect": "Allow",
+                  "Resource": "arn:aws:s3:::my-s3-arn"
                 }
               ]
             },

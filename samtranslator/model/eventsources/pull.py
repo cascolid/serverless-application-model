@@ -193,7 +193,7 @@ class PullEventSource(ResourceMacro, metaclass=ABCMeta):
                     )
                 elif destination_type == "S3":
                     s3_arn = on_failure.get("Destination")
-                    destination_config_policy = IAMRolePolicies().s3_put_object_role_policy(s3_arn, self.logical_id)
+                    destination_config_policy = IAMRolePolicies().s3_role_policy(s3_arn, self.logical_id)
 
             lambda_eventsourcemapping.DestinationConfig = self.DestinationConfig
 

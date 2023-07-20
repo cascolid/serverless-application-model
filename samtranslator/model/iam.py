@@ -127,10 +127,15 @@ class IAMRolePolicies:
         }
 
     @classmethod
-    def s3_put_object_role_policy(cls, s3_arn: Any, logical_id: str) -> Dict[str, Any]:
+    def s3_role_policy(cls, s3_arn: Any, logical_id: str) -> Dict[str, Any]:
         return {
             "PolicyName": logical_id + "S3Policy",
-            "PolicyDocument": {"Statement": [{"Action": "s3:PutObject", "Effect": "Allow", "Resource": s3_arn}]},
+            "PolicyDocument": {
+                "Statement": [
+                    {"Action": "s3:PutObject", "Effect": "Allow", "Resource": s3_arn + "/*"},
+                    {"Action": "s3:ListBucket", "Effect": "Allow", "Resource": s3_arn},
+                ]
+            },
         }
 
     @classmethod

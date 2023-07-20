@@ -17,4 +17,4 @@ Resources:
             DestinationConfig:
               OnFailure:
                 Type: S3
-                Destination: !Sub arn:aws:s3:${AWS::Region}:012345678901:my-s3-arn
+                Destination: arn:aws:s3:::my-s3-arn
